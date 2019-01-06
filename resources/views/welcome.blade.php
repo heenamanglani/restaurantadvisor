@@ -90,4 +90,24 @@
             </div>
         </div>
     </body>
+    <script type="text/javascript">
+
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function showPosition(position) {
+
+            document.cookie = "clat="+ position.coords.latitude;
+            document.cookie = "clong="+ position.coords.longitude;
+
+        }
+        window.onload = getLocation;
+
+    </script>
 </html>
